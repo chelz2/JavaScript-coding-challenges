@@ -48,3 +48,23 @@ const peopleBelow25 = people
   }));
 
 console.log(peopleBelow25);
+
+// sum of all positive numbers in array
+
+const numbers = [2, 45, -67, 7];
+
+const positiveNumSum = numbers
+  .filter((numbers) => numbers > 0)
+  .reduce((acc, cur) => acc + cur, 0);
+
+console.log(positiveNumSum);
+
+// create a array of capitalize string from array of lowercase string items
+
+const words = ["developer", "coder", "programmer"];
+
+const capitalizeWords = words.map(
+  (word) => word.charAt(0).toUpperCase() + word.slice(1)
+);
+
+console.log(capitalizeWords);
