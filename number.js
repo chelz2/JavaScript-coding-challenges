@@ -5,10 +5,10 @@ const sum = x + y;
 const sumOutput = `${x} + ${y} = ${sum}`;
 
 const multiply = x * y;
-const multOutput = `${x} + ${y} = ${multiply}`;
+const multOutput = `${x} * ${y} = ${multiply}`;
 
 const sub = x - y;
-const subOutput = `${x} + ${y} = ${sub}`;
+const subOutput = `${x} - ${y} = ${sub}`;
 
 const division = x / y;
 const divOutput = `${x} / ${y} = ${division}`;
@@ -21,3 +21,5 @@ console.log(subOutput);
 console.log(multOutput);
 console.log(divOutput);
 console.log(remainderOutput);
+
+console.log(Math.random());
