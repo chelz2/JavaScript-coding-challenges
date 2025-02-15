@@ -2,6 +2,8 @@ let x;
 
 let d = new Date();
 
+console.log(d);
+
 x = d.toDateString();
 x = d.getTime();
 x = d.valueOf();
@@ -17,7 +19,7 @@ x = `${d.getDate()}-${d.getMonth() + 1}-${d.getFullYear()}`;
 x = Intl.DateTimeFormat("en-US").format();
 x = Intl.DateTimeFormat("default", { month: "long" }).format();
 // or :-
-x = d.toLocaleDateString("default", {
+x = d.toLocaleDateString("en-US", {
   weekday: "long",
   year: "numeric",
   month: "long",

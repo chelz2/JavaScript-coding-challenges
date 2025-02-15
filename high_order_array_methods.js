@@ -1,4 +1,5 @@
-// High order Array methods - Array.forEach(), Array.filter(), Array.map(), Array.reduce()
+// High order Array methods - Array.forEach(), Array.filter(), Array.map(),
+// Array.reduce()
 
 const people = [
   {
@@ -38,7 +39,8 @@ const people = [
   },
 ];
 
-// return array with objects with name property that with both first & last name as value and for the peaple of 25 & below
+// return array with objects with name property with both first &
+// last name as value & the email property and for the peaple of 25 & below
 
 const peopleBelow25 = people
   .filter((peeps) => peeps.age <= 25)

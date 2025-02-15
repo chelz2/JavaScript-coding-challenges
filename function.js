@@ -37,9 +37,9 @@ function minMaxF(arr) {
 
 console.log(minMaxF([1, 2, 3, 4, 5, 6, 7]));
 
-// IIFE imediately invoked function challeng - gives area of rectangle as page load
+// IIFE(imediately invoked function)challeng - gives area of rectangle as page load
 
-((lenght, breadth) => {
+((l, b) => {
   area = l * b;
   console.log(
     `the area of the rectangle with lenght ${l} & breadth ${b} is ${area}`
