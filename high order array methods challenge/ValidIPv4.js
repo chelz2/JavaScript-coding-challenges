@@ -15,6 +15,6 @@ function isValidIpv4(str) {
   });
 }
 
-const ipv4 = isValidIpv4("3s.33.33.33");
+const ipv4 = isValidIpv4("ss.33.33.33");
 
 console.log(ipv4);
