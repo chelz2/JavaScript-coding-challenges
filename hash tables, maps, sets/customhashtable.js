@@ -105,10 +105,12 @@ class HashTable {
 }
 
 const hashTable = new HashTable();
-hashTable.set("chan", "9898898");
+hashTable.set("Iron Chan", "9898898");
+hashTable.set("Tony Stark", "333");
 
 hashTable.printTable();
-console.log(hashTable.get("chan"));
+console.log(hashTable.get("Iron Chan"));
+console.log(hashTable.getValues());
 
 // challenge - word instance counter in a string
 function wordInstanceCounter(str, word) {
@@ -135,4 +137,42 @@ function wordInstanceCounter(str, word) {
   return count;
 }
 
-console.log(wordInstanceCounter("the apple is shining in the sun", "the"));
+const wordInstance = wordInstanceCounter(
+  "the apple apple apple is shining in the sun",
+  "apple"
+);
+
+console.log(wordInstance);
+
+// getValues method alternative - list of values of keys in hashtable class object
+function getValues() {
+  let values = [];
+  for (let i = 0; i < this.storage.length; i++) {
+    if (this.storage[i]) {
+      for (const [key, value] of this.storage[i]) {
+        values.push(value);
+      }
+    }
+  }
+  return values;
+}
+
+// Anagram problem challenge
+
+function anagramGrouping(words) {
+  const anagramGroups = new HashTable();
+
+  for (const word of words) {
+    const sortedChars = word.split("").sort().join("");
+    if (anagramGroups.get(sortedChars)) {
+      anagramGroups.get(sortedChars).push(word);
+    } else {
+      anagramGroups.set(sortedChars, [word]);
+    }
+  }
+
+  return anagramGroups.getValues();
+}
+
+const result1 = anagramGrouping(["listen", "silent", "hello", "world"]);
+console.log(result1);
