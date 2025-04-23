@@ -71,7 +71,7 @@ class Queque {
   dequque() {
     const item = this.queque[this.head];
     this.head++;
-    console.log(item);
+    //console.log(item);
     return item;
   }
 
@@ -92,3 +92,23 @@ console.log(quque);
 quque.dequque();
 console.log(quque.peel());
 console.log(quque);
+
+// Reverse String Challenge using Queue data structure
+function reverseStringQueque(str) {
+  const queque = new Queque();
+  let reverseStr = "";
+
+  for (let i = str.length - 1; i >= 0; i--) {
+    queque.enquque(str[i]);
+  }
+
+  for (let i = 0; i < str.length; i++) {
+    reverseStr += queque.dequque();
+  }
+  console.log(queque);
+  return reverseStr;
+}
+
+console.log(reverseStringQueque("Hose"));
+
+//
