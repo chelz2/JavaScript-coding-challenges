@@ -1,0 +1,23 @@
+// Reverse String Challenge using LinkedList data structure
+const LinkedList = require("./singlelylinkedlist");
+
+function reverseStringLinkedList(str) {
+  let linklist = new LinkedList();
+  for (let i = str.length - 1; i >= 0; i--) {
+    linklist.add(str[i]);
+  }
+
+  let reverseStr = "";
+  let current = linklist.head;
+
+  while (current !== null) {
+    reverseStr += current.data;
+    current = current.next;
+  }
+
+  return reverseStr;
+}
+
+console.log(reverseStringLinkedList("hello"));
+console.log(reverseStringLinkedList("uiux"));
+console.log(reverseStringLinkedList("design"));
