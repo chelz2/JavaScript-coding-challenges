@@ -182,5 +182,6 @@ linkedlist2.add(7);
 linkedlist2.add(4);
 linkedlist2.add(8);
 linkedlist2.add(6);
+linkedlist2.add(9);
 
 console.log("Mid Value/ Node:", findMidlle(linkedlist2)); // 4
