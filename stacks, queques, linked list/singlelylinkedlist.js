@@ -139,7 +139,7 @@ console.log("///////////");
 
 // Working with Pointers in LinkedList - Fast & Slow Pointer Pattern - Not explicitly used like in C/C++
 
-const a = 2;
+let a = 2;
 const b = a;
 a = 3;
 console.log(b); // 2 , value assingned for primitive data types Vs reference in Array, object data structure
@@ -152,4 +152,35 @@ const p = person;
 person.name = "Alex";
 console.log(p.name); // Alex, refernce pointer to memory allocate for array , object data structure
 
-// Fast & Slow Pointer - using two pointers to traverse through linkedlist
+// Fast & Slow Pointer - using two pointers to traverse through linkedlist at different speed
+
+// Linked List Pointer Challenge - Find Mid value / Mid Node using Fast & Slow pointer pattern
+
+function findMidlle(linklist) {
+  let slow = linklist.head;
+  let fast = linklist.head;
+  let prev = null;
+
+  while (fast !== null && fast.next !== null) {
+    fast = fast.next.next;
+    prev = slow;
+    slow = prev.next;
+  }
+
+  if (fast === null) {
+    // even number of nodes
+    return prev.next.data;
+  } else {
+    // odd number of nodes
+    return slow.data;
+  }
+}
+
+const linkedlist2 = new LinkedList();
+linkedlist2.add(4);
+linkedlist2.add(7);
+linkedlist2.add(4);
+linkedlist2.add(8);
+linkedlist2.add(6);
+
+console.log("Mid Value/ Node:", findMidlle(linkedlist2)); // 4
