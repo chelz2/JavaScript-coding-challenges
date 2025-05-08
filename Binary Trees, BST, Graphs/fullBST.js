@@ -66,14 +66,18 @@ class BinarySearchTree {
 
   // remove method - removes specific node with spevific value
   remove(value) {
-    //helper funct
+    //helper function
     const removeNode = (node, value) => {
+      // if current node is null
+      if (node === null) {
+        return null;
+      }
       // if value is less than current node value
       if (value < node.value) {
         node.left = removeNode(node.left, value);
         return node;
       }
-      // if value is less than current node value
+      // if value is more than current node value
       else if (value > node.value) {
         node.right = removeNode(node.right, value);
         return node;
@@ -92,9 +96,9 @@ class BinarySearchTree {
         }
 
         //case 3 - node is the root node - replace node's value with successor value
-        node.value = tempNode.left;
+        node.value = tempNode.value;
 
-        node.right = removeNode(node.right, tempNode.right);
+        node.right = removeNode(node.right, tempNode.value);
         return node;
       }
     };
@@ -122,10 +126,48 @@ bst.insert(2);
 bst.insert(5);
 bst.insert(1);
 bst.insert(3);
-
-bst.remove(1);
+bst.insert(10);
+bst.insert(4);
 
 console.log(bst);
 bst.printTree();
 
-console.log(bst.lookup(1));
+bst.remove(2);
+console.log(bst);
+
+console.log(bst.lookup(5));
+
+// Validating BST - check roots & all subtree nodes
+
+function isValidBST(root, min = null, max = null) {
+  console.log("range", min, max);
+
+  if (!root) {
+    return true;
+  }
+
+  if (
+    (min !== null && root.value <= min) ||
+    (max !== null && root.value >= max)
+  ) {
+    return false;
+  }
+
+  return (
+    isValidBST(root.left, min, root.value) &&
+    isValidBST(root.right, root.value, max)
+  );
+}
+
+const root = new Node(8);
+const node4 = new Node(4); // left
+const node10 = new Node(10); // right
+const node2 = new Node(2); // left
+const node6 = new Node(6); // right
+
+root.left = node4;
+root.right = node10;
+node4.left = node2;
+node4.right = node6;
+
+console.log(isValidBST(root));
